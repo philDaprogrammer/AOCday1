@@ -5,15 +5,11 @@ import java.util.Scanner;
 
 
 public class Parser {
-    private final String filename;
-
-    public Parser(String filename) {this.filename = filename;}
-
-    public Solution parse() {
-        ArrayList<Integer> depths  = new ArrayList<>();
+    public ArrayList<Integer> parse(String filename) {
+        ArrayList<Integer> depths = new ArrayList<>();
 
         try {
-            FileInputStream stream = new FileInputStream(this.filename);
+            FileInputStream stream = new FileInputStream(filename);
             Scanner sc             = new Scanner(stream);
 
             while (sc.hasNext()) {
@@ -23,6 +19,6 @@ public class Parser {
             e.printStackTrace();
         }
 
-        return new Solution(depths);
+        return depths;
     }
 }
